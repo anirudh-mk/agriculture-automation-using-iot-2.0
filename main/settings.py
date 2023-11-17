@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config as decouple_config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0_g=2m^g(5x3$jok)!o%nrn0*f@pn^ai*ts&_8z&a(vjl#li!f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = decouple_config('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -74,9 +75,13 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": decouple_config('DATABASE_ENGINE'),
+        "NAME": decouple_config('DATABASE_NAME'),
+        "USER": decouple_config('DATABASE_USER'),
+        "PASSWORD": decouple_config('DATABASE_PASSWORD'),
+        "HOST": decouple_config('DATABASE_HOST'),
+        "PORT": decouple_config('DATABASE_PORT'),
     }
 }
 
