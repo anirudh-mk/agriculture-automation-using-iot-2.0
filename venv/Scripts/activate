@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\HP\Desktop\anirudh mk\New folder (3)\agricultureAutomationUsingIOT\venv"
+VIRTUAL_ENV="D:\Anirudh\Projects\College\agriculture-automation-using-iot-2.0\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

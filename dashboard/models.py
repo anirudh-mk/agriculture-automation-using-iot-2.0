@@ -32,3 +32,10 @@ class User(AbstractUser):
 
     class Meta:
         db_table = 'user'
+
+
+class Farm(models.Model):
+    id = models.CharField(primary_key=True, max_length=36, default=uuid.uuid4())
+    title = models.CharField(max_length=100, default='Farm')
+    description = models.CharField(max_length=300, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
